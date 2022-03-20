@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  --black: hsl(240, 6%, 13%);
+  --gray: hsl(240, 9%, 89%); /* O -- nomeia uma variável. Ex: --gray é uma variável para cores no css*/ 
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased; /*Webkit é uma propriedade para rodar em navegadores que são webkit (Chrome, Safari) - Esta propriedade suavisa a fonte*/
+}
+body {
+  display: grid;
+  place-items: center;
+}
+main {
+  background: url(images/background.svg);
+  width: 375px;
+  height: 812px;
+}
+.container {
+ max-width: 250px;
+ margin-left: auto;
+ margin-right: auto;
+ text-align: center;
+ color: var(--gray)
+}
+.avatar {
+  width: 10rem;
+  margin: 11.5rem auto 0; 
+  position: relative; /* Este position relative estabelece relação com absolute do span abaixo */ 
+}
+.avatar span {
+  position: absolute; /* O position absolute cria níveis de empilhamento entre os elementos */
+  top: -15px;
+  z-index: 1; /* Para corrigir o posicionamento no eixo z (profundidade) por conta da utilização do clip-path (que "bagunçou" o position absolute e relative) */ 
+}
+.avatar > img{
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover; /* O object-fit dimensiona a imagem nas medidas estabelecidas acima (Neste caso w 10rem h 11.5rem */
+
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); /* Criar um formato de polígono na imagem (Medidas obtidas no site bennetfeely clipy*/ 
+}
+h1 {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  margin-top: 1.5rem;
+}
+a {
+  color: var(--gray);
+  text-decoration: none;
+  margin-top: .25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  margin-top: 2rem;
+}
+ul {
+  margin-top: 4rem;
+  list-style: none; /* Retira as bolinhas que por padrão ficam nas li*/ 
+  padding: 0;
+  display: flex; /* Por padrão deixa um elemento ao lado do outro no eixo x (horizontal) */ 
+  gap: 0.5rem; /*Estabelece espaço entre os elementos */
+  justify-content: center; /* Mantém os elementos centralizados */
+}
+
